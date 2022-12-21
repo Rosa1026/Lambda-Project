@@ -8,8 +8,12 @@
   
 ## 개발 플랫폼
   - AWS Lambda
-  - AWS Gateway
+  - API Gateway
   - AWS DynamoDB
+  - Cloud Front
+  - AWS S3
+  - Cloud Watch
+  - SNS
 
 <hr/>
 
