@@ -17,7 +17,7 @@
 <hr/>
 
 ## Scenario
-![image](https://user-images.githubusercontent.com/55127182/109089643-ece01a00-7754-11eb-80f7-820b9e5a5c95.png)
+![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/%EC%A0%84%EA%B3%B5%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A4.png)
 ## 1. cloud front 생성
 
 
