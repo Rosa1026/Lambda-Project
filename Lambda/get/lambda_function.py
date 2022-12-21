@@ -14,8 +14,8 @@ def lambda_handler(event, context):
     user_id = event.get('user_id', None)
     type = event.get('type', None)
     
-    if user_id='*':
-        table.scan()
+    if user_id == '*':
+        respons = table.scan()
     else:
         if type:
             q = Key('user_id').eq(user_id) & Key('type').eq(type)
@@ -25,8 +25,8 @@ def lambda_handler(event, context):
         response = table.query(
             KeyConditionExpression=q
         )
-        items = response['Items']
-
+        
+    items = response['Items']
     return {
         'statusCode': 200,
         'items': items,
