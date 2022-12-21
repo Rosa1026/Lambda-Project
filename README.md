@@ -4,7 +4,6 @@
 
 ## 개발 언어
   - Python
-  - NodeJS
   
 ## 개발 플랫폼
   - AWS Lambda
@@ -17,6 +16,8 @@
 
 <hr/>
 
+## Scenario
+![image](https://user-images.githubusercontent.com/55127182/109089643-ece01a00-7754-11eb-80f7-820b9e5a5c95.png)
 ## 1. cloud front 생성
 
 
@@ -27,21 +28,12 @@
 
 <hr/>
 
-![image](https://user-images.githubusercontent.com/55127182/109089643-ece01a00-7754-11eb-80f7-820b9e5a5c95.png)
+<hr/>
+
+<hr/>
 
 <hr/>
 
 <hr/>
 
-
 <hr/>
-
-
-
-
-<hr/>
-
-
-<hr/>
-
-
