@@ -18,7 +18,11 @@
 
 ## Scenario
 ![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/%EC%A0%84%EA%B3%B5%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A4.png)
-## 1. cloud front 생성
+## 1. Lambda 함수 생성 (Get, Post)
+
+## 2. SNS 생성 (Post Lambda가 Publisher로 작동)
+
+## 3. Lambda 함수 생성 (MakeIMAGE, SNS의 Subscriber)
 
 
 #### 챗봇
