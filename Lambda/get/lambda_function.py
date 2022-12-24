@@ -29,7 +29,6 @@ def lambda_handler(event, context):
         
     items = response['Items']
     
-    print(items)
     return {
         'statusCode': 200,
         'items': items,
