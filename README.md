@@ -3,10 +3,10 @@
 #### 클라이언트가 접속하는 웹페이지에서의 기능을 AWS에서 제공하는 Gateway와 Lambda, S3, DynamoDB를 이용해 Serverless 구현
 
 ## 개발 언어
-  - Python
-  - Html
-  - css
-  - js
+  - Python (Lambda)
+  - Html (Frontend)
+  - css (Frontend)
+  - js (Frontend)
   
 ## 개발 플랫폼
   - AWS Lambda
@@ -22,8 +22,11 @@
 
 ## Business Logic 구현
 ### 1. dynamoDB 생성
- - ㅇ
- - 
+ - 회의에 참석할 인원에 대한 정보를 저장할 DB를 생성해주었다.
+ - user_id와 type을 main key로 받아 구성하였다.
+ - dynamoDB는 NoSQL 기반 Database로 스키마가 미리 정의되어있어야하는 RDBS보다 유연하게 데이터를 처리할 수 있다는 장점이 있어 이를 이용하였다.
+ - 또한 Serverless 서비스이므로 DB 데이터를 Lambda 함수와 같은 Serverless 서비스와 연결하여 사용이 가능하다는 점 또한 채택 이유이다.
+
 ### 2. Lambda 함수 생성 (Get, Post)
 #### 2-1) Get Lambda
   - 가장 우선적으로 진행한 함수 생성 과정이다.
