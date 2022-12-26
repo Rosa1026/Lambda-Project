@@ -65,13 +65,16 @@
 
 ## Hosting 구현
 ### 1. Frontend 구현
-  - Frontend는 css, js, html 형식으로 구현되어 s3 bucket에 저장하였다.
-  - Cloud Front에서 s3 bucket에 저장된 내용을 가져와 Client한테 제공하는 방식을 채택하였다.
+  - Frontend는 css, js, html 형식으로 구현하였다.
 
 ### 2. CloudFront 구현
+ - S3의 도메인을 원본 도메인으로 사용하고, index.html을 기본값 루트 객체로 설정한 후 배포한다.
+ - 
 
 ## Front Hosting
  - CORS(Cross-Origin Resource Sharing) 구조로 deploy를 진행하였다.
  - CORS란 웹 페이지 상의 제한된 리소스를 최초 자원이 서비스된 도메인 밖의 다른 도메인으로부터 요청할 수 있게 허용하는 구조이다.
  - 본래 REST 방법을 이용해서 구현하려 하였으나, REST 방법의 경우 browser의 same origin 규칙에 어긋나기에 CORS 방식을 사용하였다.
- - Dev stage를 생성한 후 dev stage url을 미리 생성한 index.js의 endpoint에 입력한다.
+ - 생성된 S3 bucket을 통해 유저와 연결하기에 S3 bucket의 public access를 활성화 시켜주었다.
+ - Dev stage를 생성한 후 dev stage url을 미리 생성한 index.js의 endpoint에 입력하고, 생성한 Cloud Front의 domain name을 CF endpoint에 입력하였다.
+ - Frontend 파일이 저장된 s3 bucket의 정적 웹 사이트 호스팅을 활성화시킨 후 
