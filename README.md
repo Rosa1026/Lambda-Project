@@ -17,12 +17,8 @@
   - AWS Cloud Watch
   - AWS SNS
 
-<hr/>
-
 ## Scenario
 ![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/%EC%A0%84%EA%B3%B5%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A4.png)
-
-<hr/>
 
 ## Business Logic 구현
 ### 1. dynamoDB 생성
@@ -58,13 +54,9 @@
 
 ### 5. Internet Gateway 생성 후 연결
 
-<hr/>
-
 ## Hosting 구현
 ### 1. Frontend 구현
   - Frontend는 css, js, html 형식으로 구현되어 s3 bucket에 저장하였다.
   - Cloud Front에서 s3 bucket에 저장된 내용을 가져와 Client한테 제공하는 방식을 채택하였다.
 
 ### 2. CloudFront 구현
-
-<hr/>
