@@ -51,12 +51,11 @@
   - 생성한 변수의 정보를 dynamoDB table에서 받아오고 전화번호, 회사이름, 사용자 이름 정보를 받아온다.
   - makeIMAGE 함수는 실제로 이미지를 만들어주는 함수이기에 Python library인 Pillow와 Qrcode를 사용해주었다.
   - 사용할 logo와 font는 만든 qr code를 저장하기 위해 생성해둔 s3 bucket에서 불러와서 사용해주었고, Pillow와 qr code documents를 참고하여 이미지를 생성한 후 이를 s3 bucket에 저장하였다.
-
   - 구현을 마친 후 Publisher에서 발생한 event가 qr code화가 되어 s3 bucket에 저장되는지를 확인하였다.
   - 아래 사진은 s3 bucket에 qr code 폴더가 자동으로 생선된 사진이고, 그 안에 생성된 qr code 이미지이다.
 ![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/s3.png)   ![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/qrcode.jpg)
 
-### 5. Internet Gateway 생성 후 연결
+### 5. Internet Gateway 생성 후 연결 (수정 중)
  - gateway 생성
  - 리소스 그룹 생성 후 get 함수 연결
  - POST 함수 연결
@@ -64,7 +63,7 @@
  - post 요청 본문에 생성한 모델 추가
 
 ## Hosting 구현
-### 1. Frontend 구현
+### 1. Frontend 구현 (수정 중)
   - Frontend는 css, js, html 형식으로 구현하였다.
 
 ### 2. CloudFront 구현
@@ -81,4 +80,4 @@
  - History를 들어가면 DynamoDB에 저장된 유저의 정보가 나타나므로 Get 동작이 올바르게 작동하는 것을 알 수 있다.
  - Sign Up에서 정보를 입력하고 submit시 qr code가 생성되고 History에 저장되는 것을 보아 Post 동작 또한 올바르게 동작하는 것을 알 수 있다.
 
-# 고찰
+# 고찰 (수정 중)
