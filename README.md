@@ -81,4 +81,4 @@
  - History를 들어가면 DynamoDB에 저장된 유저의 정보가 나타나므로 Get 동작이 올바르게 작동하는 것을 알 수 있다.
  - Sign Up에서 정보를 입력하고 submit시 qr code가 생성되고 History에 저장되는 것을 보아 Post 동작 또한 올바르게 동작하는 것을 알 수 있다.
 
-# 
+# 고찰
