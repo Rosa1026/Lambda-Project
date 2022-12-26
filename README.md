@@ -1,6 +1,6 @@
 # AWS 기능을 이용한 회의 참석용 QR code 생성 웹페이지
  
-#### 클라이언트가 접속하는 웹페이지에서의 기능을 AWS에서 제공하는 Gateway와 Lambda, S3, DynamoDB를 이용해 Serverless 환경에서 구현
+#### 클라이언트가 접속하는 웹페이지에서의 기능을 AWS에서 제공하는 Gateway와 Lambda, S3, DynamoDB를 이용해 Serverless 구현
 
 ## 개발 언어
   - Python
@@ -22,6 +22,8 @@
 
 ## Business Logic 구현
 ### 1. dynamoDB 생성
+ - ㅇ
+ - 
 ### 2. Lambda 함수 생성 (Get, Post)
 #### 2-1) Get Lambda
   - 가장 우선적으로 진행한 함수 생성 과정이다.
@@ -49,10 +51,14 @@
 
   - 구현을 마친 후 Publisher에서 발생한 event가 qr code화가 되어 s3 bucket에 저장되는지를 확인하였다.
   - 아래 사진은 s3 bucket에 qr code 폴더가 자동으로 생선된 사진이고, 그 안에 생성된 qr code 이미지이다.
-![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/s3%20bucket.png)
-![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/result.png)
+![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/s3%20bucket.png)![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/qrcode.jpg)
 
 ### 5. Internet Gateway 생성 후 연결
+ - gateway 생성
+ - 리소스 그룹 생성 후 get 함수 연결
+ - POST 함수 연결
+ - 올바른 key가 입력이 안 됐을 때 정보가 입력되는 것을 대비한 모델 생성
+ - post 요청 본문에 생성한 모델 추가
 
 ## Hosting 구현
 ### 1. Frontend 구현
@@ -60,3 +66,10 @@
   - Cloud Front에서 s3 bucket에 저장된 내용을 가져와 Client한테 제공하는 방식을 채택하였다.
 
 ### 2. CloudFront 구현
+
+## Hosting Part를 IGW를 이용해 deploy
+ - CORS(Cross-Origin Resource Sharing) 구조로 deploy를 진행하였다.
+ - CORS란 웹 페이지 상의 제한된 리소스를 최초 자원이 서비스된 도메인 밖의 다른 도메인으로부터 요청할 수 있게 허용하는 구조이다.
+ - 본래 REST 방법을 이용해서 구현하려 하였으나, REST 방법의 경우 browser의 same origin 규칙에 어긋나기에 CORS 방식을 사용하였다.
+ - CORS 활성화 진행 후 dev stage 생성을 진행한 후, Postman 확장을 진행해주었다.
+ - 
