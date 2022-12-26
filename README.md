@@ -49,10 +49,14 @@
 
   - 구현을 마친 후 Publisher에서 발생한 event가 qr code화가 되어 s3 bucket에 저장되는지를 확인하였다.
   - 아래 사진은 s3 bucket에 qr code 폴더가 자동으로 생선된 사진이고, 그 안에 생성된 qr code 이미지이다.
-![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/s3%20bucket.png)
-![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/qrcode.jpg)
+![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/s3%20bucket.png)![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/qrcode.jpg)
 
 ### 5. Internet Gateway 생성 후 연결
+ - gateway 생성
+ - 리소스 그룹 생성 후 get 함수 연결
+ - POST 함수 연결
+ - 올바른 key가 입력이 안 됐을 때 정보가 입력되는 것을 대비한 모델 생성
+ - post 요청 본문에 생성한 모델 추가
 
 ## Hosting 구현
 ### 1. Frontend 구현
