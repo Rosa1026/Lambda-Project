@@ -69,7 +69,6 @@
 
 ### 2. CloudFront 구현
  - S3의 도메인을 원본 도메인으로 사용하고, index.html을 기본값 루트 객체로 설정한 후 배포한다.
- - 
 
 ## Front Hosting
  - CORS(Cross-Origin Resource Sharing) 구조로 deploy를 진행하였다.
@@ -77,4 +76,9 @@
  - 본래 REST 방법을 이용해서 구현하려 하였으나, REST 방법의 경우 browser의 same origin 규칙에 어긋나기에 CORS 방식을 사용하였다.
  - 생성된 S3 bucket을 통해 유저와 연결하기에 S3 bucket의 public access를 활성화 시켜주었다.
  - Dev stage를 생성한 후 dev stage url을 미리 생성한 index.js의 endpoint에 입력하고, 생성한 Cloud Front의 domain name을 CF endpoint에 입력하였다.
- - Frontend 파일이 저장된 s3 bucket의 정적 웹 사이트 호스팅을 활성화시킨 후 
+ - Frontend 파일이 저장된 s3 bucket에서 인덱스 문서를 index.html로 설정하고, 정적 웹 사이트 호스팅을 활성화시켰다.
+ - index.html url을 통해서 접속하면 결과 화면이 나타나는 것을 확인할 수 있다.
+ - History를 들어가면 DynamoDB에 저장된 유저의 정보가 나타나므로 Get 동작이 올바르게 작동하는 것을 알 수 있다.
+ - Sign Up에서 정보를 입력하고 submit시 qr code가 생성되고 History에 저장되는 것을 보아 Post 동작 또한 올바르게 동작하는 것을 알 수 있다.
+
+# 
