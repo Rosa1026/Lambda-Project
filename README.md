@@ -64,3 +64,6 @@
   - Cloud Front에서 s3 bucket에 저장된 내용을 가져와 Client한테 제공하는 방식을 채택하였다.
 
 ### 2. CloudFront 구현
+
+## Hosting Part를 IGW를 이용해 deploy
+ -
