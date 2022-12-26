@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var ENDPOINT = '{apt-gateway:endpoint}'
-    var CF = '{cloud-front:endpoint}'
+    var ENDPOINT = 'https://2nlo6pch08.execute-api.ap-northeast-3.amazonaws.com/dev/conference'
+    var CF = 'https://ds3lon3ain7wp.cloudfront.net'
     var dialog = document.querySelector('dialog');
     var showModalButton = $('.show-modal');
     if (! dialog.showModal) {
@@ -21,7 +21,7 @@ $(document).ready(function(){
     });
     function load_data(){
         $.ajax({
-            url: ENDPOINT +'?user_id=*',
+            url: ENDPOINT +'/users/*',
             method: 'get',
             success: function(r){
                 var html = '';
@@ -59,7 +59,7 @@ $(document).ready(function(){
                 type: type,
                 user_id: user_id,
                 user_name: user_name,
-                user_phone: user_phone,
+                phone_number: user_phone,
                 company_name: company_name
             }),
             beforeSend: function(){
