@@ -55,14 +55,14 @@
   - 사용할 logo와 font는 만든 qr code를 저장하기 위해 생성해둔 s3 bucket에서 불러와서 사용해주었고, Pillow와 qr code documents를 참고하여 이미지를 생성한 후 이를 s3 bucket에 저장하였다.
   - 구현을 마친 후 Publisher에서 발생한 event가 qr code화가 되어 s3 bucket에 저장되는지를 확인하였다.
   - 아래 사진은 s3 bucket에 qr code 폴더가 자동으로 생선된 사진이고, 그 안에 생성된 qr code 이미지이다.
-![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/s3.png)   ![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/qrcode.jpg)
+  
+![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/s3.png)![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/qrcode.jpg)
 
-### 5. Internet Gateway 생성 후 연결 (수정 중)
- - gateway 생성
- - 리소스 그룹 생성 후 get 함수 연결
- - POST 함수 연결
- - 올바른 key가 입력이 안 됐을 때 정보가 입력되는 것을 대비한 모델 생성
- - post 요청 본문에 생성한 모델 추가
+### 5. Internet Gateway 생성 & Lambda 함수 연결
+ - REST API로 설정하여 생성하고 배포를 진행한다.
+ - Gateway에 리소스 그룹 생성 후 get 메소드를 생성해서 get 함수와 연결해주고, POST 메소드를 생성하여 POST 함수와 연결한다.
+ - 올바른 key가 입력이 안 됐을 때 정보가 입력되는 것을 대비한 모델을 생성해주었다.
+ - 앞서 생성한 모델을 Post 메소드의 요청 본문에 모델을 추가한다.
 
 ## Hosting 구현
 ### 1. Frontend 구현 (수정 중)
