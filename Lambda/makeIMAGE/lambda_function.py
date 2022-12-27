@@ -52,7 +52,7 @@ def lambda_handler(event, context):
 
         # 3-3) merge
         img = Image.new('RGB', (W, H), color='#fff')
-        img.paste(logo, (1, 15), logo)
+        img.paste(logo, (150, -90), logo)
         img.paste(qr_img, (15, 100))
 
         # 3-4) draw
