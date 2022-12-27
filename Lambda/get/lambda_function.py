@@ -12,16 +12,16 @@ def lambda_handler(event, context):
     # Get the dynamoDB table
     table = dynamodb.Table(os.environ['TABLE_NAME'])
     
-    user_id = event.get('user_id', None)
-    type = event.get('type', None)
+    user_name = event.get('user_name', None)
+    phone_number = event.get('phone_number', None)
     
-    if user_id == '*':
+    if user_name == '*':
         response = table.scan()
     else:
         if type:
-            q = Key('user_id').eq(user_id) & Key('type').eq(type)
+            q = Key('user_name').eq(user_name) & Key('phone_number').eq(phone_number)
         else:
-            q = Key('user_id').eq(user_id)
+            q = Key('user_name').eq(user_name)
             
         response = table.query(
             KeyConditionExpression=q

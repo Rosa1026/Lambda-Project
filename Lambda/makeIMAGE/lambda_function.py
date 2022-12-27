@@ -17,37 +17,33 @@ def lambda_handler(event, context):
     #                      make lambda arn등록
     records = event['Records']
     if records : 
-        user_id = records[0]['Sns']['Message']
-        type = records[0]['Sns']['Subject']
+        user_name = records[0]['Sns']['Message']
+        phone_number = records[0]['Sns']['Subject']
     
         #2.DynamoDB에서 key의 사용자 정보 가져오기
         response = table.get_item(
             Key={
-                'user_id': user_id,
-                'type': type
+                'user_name': user_name,
+                'phone_number': phone_number
             }
         )
-        item = response['Item']
-        phone_number = item.get('phone_number', '')
-        company_name = item.get('company_name', '')
-        user_name = item.get('user_name', '')  
         
         #3. image build
         W, H = (400, 250)
 
         # 3-1) logo img
-        s3.download_file(os.environ['BUCKET_NAME'], 'fonts/font.otf', '/tmp/font.otf')
-        s3.download_file(os.environ['BUCKET_NAME'], 'images/logo.png', '/tmp/logo.png')
+        s3.Bucket(os.environ['BUCKET_NAME']).download_file('font/font.otf', '/tmp/font.otf')
+        s3.Bucket(os.environ['BUCKET_NAME']).download_file('logo/restaurant.png', '/tmp/restaurant.png')
 
-        logo = Image.open('/tmp/logo.png') #image logo
+        logo = Image.open('/tmp/restaurant.png') #image logo
         otf = '/tmp/font.otf' #font
 
         # 3-2) qr code img
         qr = qrcode.QRCode(
-            version=1,
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=4,
-            border=4,
+                version=1,
+                error_correction=qrcode.constants.ERROR_CORRECT_L,
+                box_size=4,
+                border=4,
         )
 
         qr.add_data(phone_number)
@@ -56,7 +52,7 @@ def lambda_handler(event, context):
 
         # 3-3) merge
         img = Image.new('RGB', (W, H), color='#fff')
-        img.paste(logo, (15, 15), logo)
+        img.paste(logo, (1, 15), logo)
         img.paste(qr_img, (15, 100))
 
         # 3-4) draw
@@ -67,18 +63,17 @@ def lambda_handler(event, context):
         draw = ImageDraw.Draw(img)
 
         draw.text((150, 110), user_name, fill='#000', font=font_b)
-        draw.text((150, 140), f'From {company_name}', fill='#000', font=font_m)
+        draw.text((150, 140), phone_number, fill='#000', font=font_m)
 
         draw.rectangle((145, 170, 375, 205), fill='#f0f0f0')
-        draw.text((150, 170), 'CONFERENCE PASS', fill='#ed244b', font=font_B)
+        draw.text((150, 170), '예약 확인 QR', fill='#ed244b', font=font_B)
 
         img.save(f'/tmp/signed.jpg', quality=100)
 
-        key = f'qrcodes/{user_id}/{type}/qrcode.jpg'
+        key = f'qrcodes/{user_name}/{phone_number}/qrcode.jpg'
         s3.meta.client.upload_file('/tmp/signed.jpg', os.environ['BUCKET_NAME'], key, ExtraArgs={'ContentType':'image/jpeg'})
 
     return {
         'statusCode': 200,
-        'event': event,
- 
+        'event': event
     }
