@@ -34,12 +34,12 @@
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span class="mdl-layout-title"><b>Conference</b></span>
+          <span class="mdl-layout-title"><b>MSA Restaurant 예약</b></span>
         </div>
         <!-- Tabs -->
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-          <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Sign up</a>
-          <a href="#fixed-tab-2" class="mdl-layout__tab">History</a>
+          <a href="#fixed-tab-1" class="mdl-layout__tab is-active">예약</a>
+          <a href="#fixed-tab-2" class="mdl-layout__tab">예약자 명단</a>
         </div>
       </header>
       <!--<div class="mdl-layout__drawer">-->
@@ -58,19 +58,8 @@
                   <div class="mdl-card__supporting-text">
                     <div id='submitForm'>
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <select class="mdl-textfield__input" id="type" name="type">
-                          <option value="Serverless web project">Serverless web project</option>
-                          <option value="About cloud computing">About cloud computing</option>
-                        </select>
-                        <label class="mdl-textfield__label" for="type">Conference</label>
-                      </div>
-                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="user_id">
-                        <label class="mdl-textfield__label" for="user_id">User ID</label>
-                      </div>
-                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" type="text" id="user_name">
-                        <label class="mdl-textfield__label" for="user_name">Name</label>
+                        <label class="mdl-textfield__label" for="user_name">User Name</label>
                       </div>
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="user_phone">
@@ -78,8 +67,8 @@
                         <span class="mdl-textfield__error">Input is not a number!</span>
                       </div>
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="company_name">
-                        <label class="mdl-textfield__label" for="company_name">Company Name</label>
+                        <input class="mdl-textfield__input" type="number" id="num_people">
+                        <label class="mdl-textfield__label" for="num_people">number of people</label>
                       </div>
                     </div>
                   </div>
