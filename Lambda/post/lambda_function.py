@@ -3,8 +3,8 @@ import boto3
 import os
 
 def lambda_handler(event, context):
-    user_name = event.get('user_name', None)
-    phone_number = event.get('phone_number', None)
+    user_id = event.get('user_id', None)
+    type = event.get('type', None)
     
     #dynamoDB
     dynamodb = boto3.resource('dynamodb')
@@ -17,8 +17,8 @@ def lambda_handler(event, context):
     sns = boto3.resource('sns')
     topic = sns.Topic(os.environ['SNS_ARN'])
     response = topic.publish(
-        Message = user_name,
-        Subject = phone_number
+        Message = user_id,
+        Subject = type
     )
 
     return {
