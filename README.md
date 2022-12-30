@@ -1,4 +1,4 @@
-# 식당 예약 APP 구현 프로젝트
+# 호텔 예약 Web page 구현
  
 #### 프로젝트 목표 : AWS Lambda, dynamoDB 등을 이용해서 Serverless APP을 구현하고 Serverless 환경의 동작 원리를 이해한다.
 
@@ -22,8 +22,8 @@
 
 ## Business Logic 구현
 ### 1. dynamoDB 생성
- - 식당 예약에 필요한 정보를 저장할 DB를 생성해주었다.
- - user_name과 phone_numbe를 main key로 받아 구성하였다.
+ - 호텔 예약에 필요한 정보를 저장할 DB를 생성해주었다.
+ - user_id와 type(방 번호)를 main key로 받아 구성하였다.
  - dynamoDB는 NoSQL 기반 Database로 스키마가 미리 정의되어있어야하는 RDBS보다 유연하게 데이터를 처리할 수 있다는 장점이 있어 이를 이용하였다.
  - 또한 Serverless 서비스이므로 DB 데이터를 Lambda 함수와 같은 Serverless 서비스와 연결하여 사용이 가능하다는 점 또한 채택 이유이다.
 
@@ -56,7 +56,7 @@
   - 구현을 마친 후 Publisher에서 발생한 event가 qr code화가 되어 s3 bucket에 저장되는지를 확인하였다.
   - 아래 사진은 s3 bucket에 qr code 폴더가 자동으로 생선된 사진이고, 그 안에 생성된 qr code 이미지이다.
   
-![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/s3.png)![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/qrcode.jpg)
+![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/s3.png)![image](https://github.com/Rosa1026/Lambda-Project/blob/main/image/qr.png)
 
 ### 5. Internet Gateway 생성 & Lambda 함수 연결
  - REST API로 설정하여 생성하고 배포를 진행한다.
